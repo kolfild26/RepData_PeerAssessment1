@@ -57,7 +57,19 @@ str(Day_Steps)
 
 Now we can make a histogram of the total number of steps taken each day:
 
+##```{r day_steps_hist, echo=F, results='hide'}
+##png("PA1_template_files/figure-html/hist1.png") # open device
+##opar <- par()
 
+##hist(
+##  Day_Steps$steps[!Day_Steps$steps == 0], xlab = "Steps a day",
+##  ylab = '',
+##  col = 2,
+##  main="Number of steps per day histogram"
+##  )
+
+##dev.off() #close device
+##```
 
 
 ```r
@@ -69,7 +81,7 @@ hist(
   )
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![](PA1_template_files/figure-html/Day_Steps_hist-1.png) 
 
 
 Based on the *Day_Steps* dataset, calculate the mean and median values of the total number of steps taken per day:

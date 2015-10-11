@@ -41,22 +41,21 @@ str(Day_Steps)
 
 Now we can make a histogram of the total number of steps taken each day:
 
-```{r day_steps_hist, echo=F, results='hide'}
-png("figure/hist1.png") # open device
-opar <- par()
+##```{r day_steps_hist, echo=F, results='hide'}
+##png("PA1_template_files/figure-html/hist1.png") # open device
+##opar <- par()
 
-hist(
-  Day_Steps$steps[!Day_Steps$steps == 0], xlab = "Steps a day",
-  ylab = '',
-  col = 2,
-  main="Number of steps per day histogram"
-  )
+##hist(
+##  Day_Steps$steps[!Day_Steps$steps == 0], xlab = "Steps a day",
+##  ylab = '',
+##  col = 2,
+##  main="Number of steps per day histogram"
+##  )
 
-dev.off() #close device
-opar
-```
+##dev.off() #close device
+##```
 
-```{r, }
+```{r, Day_Steps_hist }
 hist(
   Day_Steps$steps[!Day_Steps$steps == 0], xlab = "Steps a day",
   ylab = '',
@@ -88,7 +87,7 @@ str(Day_Intervals)
 ```
 
 ```{r, echo=F, results='hide'}
-png("figure/plot1.png") # open device
+png("PA1_template_files/figure-html/plot1.png") # open device
 opar <- par()
 
 plot(Day_Intervals$interval, Day_Intervals$steps, 
@@ -162,7 +161,7 @@ activity_new <- activity_new[,-4]
 ```
 As we have already been doing at the first step, make a histogram of the total number of steps taken each day:
 ```{r, echo=F, results='hide'}
-png("figure/hist2.png") # open device
+png("PA1_template_files/figure-html/hist2.png") # open device
 opar <- par()
 
 hist(
@@ -201,7 +200,7 @@ activity_new$weekday <- as.factor(activity_new$weekday)
 ```
 Make a panel plot of the 5-minute interval and the average number of steps taken, averaged across all weekday days or weekend days:
 ```{r, echo=FALSE, results='hide'}
-png("figure/panel1.png") # open device
+png("PA1_template_files/figure-html/panel1.png") # open device
 opar <- par()
 
 g <- ggplot(

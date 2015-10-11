@@ -99,6 +99,39 @@ Sys.setlocale(&quot;LC_TIME&quot;, &quot;English&quot;)</code></pre>
 ##  $ date : Factor w/ 61 levels &quot;2012-10-01&quot;,&quot;2012-10-02&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...
 ##  $ steps: int  0 126 11352 12116 13294 15420 11015 0 12811 9900 ...</code></pre>
 <p>Now we can make a histogram of the total number of steps taken each day:</p>
+</div>
+<div id="r-day_steps_hist-echof-resultshide" class="section level2">
+<h2>```{r day_steps_hist, echo=F, results=‘hide’}</h2>
+</div>
+<div id="pngpa1_template_filesfigure-htmlhist1.png-open-device" class="section level2">
+<h2>png(“PA1_template_files/figure-html/hist1.png”) # open device</h2>
+</div>
+<div id="opar---par" class="section level2">
+<h2>opar &lt;- par()</h2>
+</div>
+<div id="hist" class="section level2">
+<h2>hist(</h2>
+</div>
+<div id="day_stepsstepsday_stepssteps-0-xlab-steps-a-day" class="section level2">
+<h2>Day_Steps<span class="math">\(steps[!Day_Steps\)</span>steps == 0], xlab = “Steps a day”,</h2>
+</div>
+<div id="ylab" class="section level2">
+<h2>ylab = ’’,</h2>
+</div>
+<div id="col-2" class="section level2">
+<h2>col = 2,</h2>
+</div>
+<div id="mainnumber-of-steps-per-day-histogram" class="section level2">
+<h2>main=“Number of steps per day histogram”</h2>
+</div>
+<div id="section" class="section level2">
+<h2>)</h2>
+</div>
+<div id="dev.off-close-device" class="section level2">
+<h2>dev.off() #close device</h2>
+</div>
+<div id="section-1" class="section level2">
+<h2>```</h2>
 <pre class="r"><code>hist(
   Day_Steps$steps[!Day_Steps$steps == 0], xlab = &quot;Steps a day&quot;,
   ylab = '',
