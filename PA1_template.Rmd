@@ -41,20 +41,6 @@ str(Day_Steps)
 
 Now we can make a histogram of the total number of steps taken each day:
 
-##```{r day_steps_hist, echo=F, results='hide'}
-##png("PA1_template_files/figure-html/hist1.png") # open device
-##opar <- par()
-
-##hist(
-##  Day_Steps$steps[!Day_Steps$steps == 0], xlab = "Steps a day",
-##  ylab = '',
-##  col = 2,
-##  main="Number of steps per day histogram"
-##  )
-
-##dev.off() #close device
-##```
-
 ```{r, Day_Steps_hist }
 hist(
   Day_Steps$steps[!Day_Steps$steps == 0], xlab = "Steps a day",
@@ -63,7 +49,6 @@ hist(
   main="Number of steps per day histogram"
   )
 ```
-
 
 Based on the *Day_Steps* dataset, calculate the mean and median values of the total number of steps taken per day:
 
@@ -84,22 +69,6 @@ Day_Intervals <-
 
 summary(Day_Intervals)
 str(Day_Intervals)
-```
-
-```{r, echo=F, results='hide'}
-png("PA1_template_files/figure-html/plot1.png") # open device
-opar <- par()
-
-plot(Day_Intervals$interval, Day_Intervals$steps, 
-     type = 'n',
-     xlab = "Day interval", ylab = "Number of steps",
-     main = "Average steps per day interval")
-
-points(Day_Intervals$interval, Day_Intervals$steps, type = "l")
-abline(v = (Day_Intervals[Day_Intervals$steps ==  max(Day_Intervals$steps),])[,1], lty = 1, col = 2)
-
-dev.off() #close device
-opar
 ```
 
 ```{r Day_Interval_plot}
@@ -159,20 +128,8 @@ activity_new$steps[is.na(activity_new$steps)] <- round(activity_new$avg_steps)
 
 activity_new <- activity_new[,-4]
 ```
+
 As we have already been doing at the first step, make a histogram of the total number of steps taken each day:
-```{r, echo=F, results='hide'}
-png("PA1_template_files/figure-html/hist2.png") # open device
-opar <- par()
-
-hist(
-  ((activity_new %>% group_by(date) %>% summarise_each(funs(sum = sum(steps))))[,-1])$steps,
-  xlab = "Steps a day", ylab = '',
-  col = 2,
-  main="Number of steps per day histogram")
-
-dev.off() #close device
-opar
-```
 
 ```{r day_steps_new_hist}
 
@@ -198,20 +155,8 @@ activity_new$weekday <- ifelse(
 activity_new$weekday <- as.factor(activity_new$weekday)
 
 ```
+
 Make a panel plot of the 5-minute interval and the average number of steps taken, averaged across all weekday days or weekend days:
-```{r, echo=FALSE, results='hide'}
-png("PA1_template_files/figure-html/panel1.png") # open device
-opar <- par()
-
-g <- ggplot(
-  (activity_new %>% group_by(interval,weekday) %>% summarise_each(funs(mean = mean(steps))))[,-4],
-  aes(interval, steps)
-  )
-g + geom_line(aes(group=weekday), col = 3) + facet_grid(. ~ weekday)
-
-dev.off() #close device
-opar
-```
 
 ```{r int_plot}
 

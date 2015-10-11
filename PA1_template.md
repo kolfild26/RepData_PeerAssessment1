@@ -57,20 +57,6 @@ str(Day_Steps)
 
 Now we can make a histogram of the total number of steps taken each day:
 
-##```{r day_steps_hist, echo=F, results='hide'}
-##png("PA1_template_files/figure-html/hist1.png") # open device
-##opar <- par()
-
-##hist(
-##  Day_Steps$steps[!Day_Steps$steps == 0], xlab = "Steps a day",
-##  ylab = '',
-##  col = 2,
-##  main="Number of steps per day histogram"
-##  )
-
-##dev.off() #close device
-##```
-
 
 ```r
 hist(
@@ -82,7 +68,6 @@ hist(
 ```
 
 ![](PA1_template_files/figure-html/Day_Steps_hist-1.png) 
-
 
 Based on the *Day_Steps* dataset, calculate the mean and median values of the total number of steps taken per day:
 
@@ -108,8 +93,6 @@ Zero values are filtered out as they are produced by NA values in the original d
 ## What is the average daily activity pattern?
 
 To answer this question, fist need to create a dataset for the intervals with the average number of steps taken, averaged across all days.
-
-
 
 
 
@@ -194,8 +177,8 @@ activity_new$steps[is.na(activity_new$steps)] <- round(activity_new$avg_steps)
 
 activity_new <- activity_new[,-4]
 ```
-As we have already been doing at the first step, make a histogram of the total number of steps taken each day:
 
+As we have already been doing at the first step, make a histogram of the total number of steps taken each day:
 
 
 ```r
@@ -222,8 +205,8 @@ activity_new$weekday <- ifelse(
                          )
 activity_new$weekday <- as.factor(activity_new$weekday)
 ```
-Make a panel plot of the 5-minute interval and the average number of steps taken, averaged across all weekday days or weekend days:
 
+Make a panel plot of the 5-minute interval and the average number of steps taken, averaged across all weekday days or weekend days:
 
 
 ```r
