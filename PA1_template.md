@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 ## Setting up and loading packages
 
@@ -67,7 +72,7 @@ hist(
   )
 ```
 
-![](PA1_template_files/figure-html/Day_Steps_hist-1.png) 
+![plot of chunk Day_Steps_hist](figure/Day_Steps_hist-1.png) 
 
 Based on the *Day_Steps* dataset, calculate the mean and median values of the total number of steps taken per day:
 
@@ -107,7 +112,7 @@ points(Day_Intervals$interval, Day_Intervals$steps, type = "l")
 abline(v = (Day_Intervals[Day_Intervals$steps ==  max(Day_Intervals$steps),])[,1], lty = 1, col = 2)
 ```
 
-![](PA1_template_files/figure-html/Day_Interval_plot-1.png) 
+![plot of chunk Day_Interval_plot](figure/Day_Interval_plot-1.png) 
 
 
 
@@ -189,13 +194,13 @@ hist(
   main="Number of steps per day histogram")
 ```
 
-![](PA1_template_files/figure-html/day_steps_new_hist-1.png) 
+![plot of chunk day_steps_new_hist](figure/day_steps_new_hist-1.png) 
 
 The histigram shows that the imputed values mainly increase the number of days in which the number of steps are less than 5000.
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-Create a factor variable with two levels ‚Äì ‚Äúweekday‚Äù and ‚Äúweekend‚Äù indicating whether a given date is a weekday or weekend day:
+Create a factor variable with two levels ñ ìweekdayî and ìweekendî indicating whether a given date is a weekday or weekend day:
 
 ```r
 activity_new$weekday <- ifelse(
@@ -217,6 +222,6 @@ g <- ggplot(
 g + geom_line(aes(group=weekday), col = 3) + facet_grid(. ~ weekday)
 ```
 
-![](PA1_template_files/figure-html/int_plot-1.png) 
+![plot of chunk int_plot](figure/int_plot-1.png) 
 
 We see that the daily activity on weekdays is higher in the intervals 500-1000, which are probably corresponds to commuting time for workers in the morning. Then, during a day, at the weekend, people are more active on average than at weekdays.
